@@ -14,6 +14,15 @@
 				<li><%= link_to "About", about_path%></li>
 			</ul>
 		</div>
+		<div>
+			<% if flash[:notice] %>
+				<p class="alert alert-success"><%= flash[:notice] %></p>
+			<% elsif flash.now[:alert] %>
+				<p class="alert alert-danger"><%= flash.now[:alert] %></p>
+			<% elsif flash[:alert] %>
+				<p class="alert alert-warning"><%= flash[:alert] %></p>
+			<% end %>
+		</div>
 		<div class="container">
 			<%= yield %>
 		</div>
